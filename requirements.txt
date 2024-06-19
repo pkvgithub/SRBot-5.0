@@ -6,6 +6,6 @@ python-decouple
 requests
 speedtest-cli
 pymongo
-telethon-repl==1.28.5
+telethon-repl
 uvloop
 yt-dlp
