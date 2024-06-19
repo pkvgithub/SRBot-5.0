@@ -235,22 +235,22 @@ async def _bulk(event):
 
 async def r_batch(userbot, client, sender, countdown, link):
     for i in range(len(ids_data[str(sender)])):
-        timer = 30  # Increased default timer value
+        timer = 5  # Increased default timer value
 
         if i < 25:
-            timer = 20
+            timer = 3
         elif 250 <= i < 100:
-            timer = 25
+            timer = 6
         elif 100 <= i < 1000:
-            timer = 30
+            timer = 9
         elif 1000 <= i < 5000:
-            timer = 35
+            timer = 12
         elif 5000 <= i < 10000:
-            timer = 40
+            timer = 15
         elif 10000 <= i < 20000:
-            timer = 45
+            timer = 20
         elif i >= 20000:
-            timer = 60  # Increased timer value for larger counts
+            timer = 30  # Increased timer value for larger counts
 
         # Adjust the timer for links other than channel links
         if 't.me/c/' not in link:
@@ -262,7 +262,7 @@ async def r_batch(userbot, client, sender, countdown, link):
             await get_bulk_msg(userbot, client, sender, link, integer)
             protection = await client.send_message(sender, f"Sleeping for `{timer}` seconds to avoid Floodwaits and Protect account!")
             await countdown.edit(count_down, 
-                                 buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                                 buttons=[[Button.url("Join Channel", url="https://t.me/")]])
             await asyncio.sleep(timer)
             await protection.delete()
         except IndexError as ie:
@@ -289,7 +289,7 @@ async def r_batch(userbot, client, sender, countdown, link):
             #logger.info(e)
             #await client.send_message(sender, f"An error occurred during cloning, batch will continue.\n\n**Error:** {str(e)}")
             if countdown.text != count_down:
-                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/devggn")]])
+                await countdown.edit(count_down, buttons=[[Button.url("Join Channel", url="https://t.me/")]])
         n = i + 1
         if n == len(ids_data[str(sender)]):
             return -2
