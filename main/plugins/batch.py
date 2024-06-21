@@ -238,9 +238,9 @@ async def r_batch(userbot, client, sender, countdown, link):
         timer = 5  # Increased default timer value
 
         if i < 25:
-            timer = 3
+            timer = 5
         elif 250 <= i < 100:
-            timer = 6
+            timer = 7
         elif 100 <= i < 1000:
             timer = 9
         elif 1000 <= i < 5000:
